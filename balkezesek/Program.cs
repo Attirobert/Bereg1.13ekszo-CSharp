@@ -21,7 +21,7 @@ namespace balkezesek
         {
             // 2. feladat
             // Állomány sorainak beolvasása és tárolása
-            string[] forras = File.ReadAllLines("balkezesek.csv");
+            string[] forras = File.ReadAllLines("../../balkezesek.csv");
             adat[] ad = new adat[forras.Length - 1];
 
             // 3. feladat
@@ -60,17 +60,17 @@ namespace balkezesek
                 {
                     break;
                 }
-                Console.Write("\nHibás adat!")
+                Console.Write("\nHibás adat!");
             } while (true);
 
             // 6. feladat
             // Átlagsúly
             int fo = 0;
             double osszsuly = 0;
-
+            string ss = "";
             for (int i = 1; i < ad.Length; i++)
             {
-                if (ad[i].elsoDatum.Substring(5) == evszam)
+                if (ad[i].elsoDatum.Substring(0, 4) == evszam)
                 {
                     fo++;
                     osszsuly += ad[i].suly;
