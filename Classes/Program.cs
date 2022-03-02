@@ -23,7 +23,7 @@ namespace Classes
             Console.WriteLine("Az allat1 fajtája: {0}", allat1.getFajta());
             Console.ReadKey();
 
-            // Példányosítás paraméterekkel
+            // Származtatott osztály példányosítása
             Kutya kutya1 = new Kutya("Bolhás", "puli", 2, "vau vau");
             Console.WriteLine("\nA kutya1 neve {0}", kutya1.getNev());
             Console.WriteLine("A kutya1 fajtája {0}", kutya1.getFajta());
@@ -40,6 +40,46 @@ namespace Classes
             Console.WriteLine("A kutya2 hangja: ");
             kutya2.HangotAd();
             Console.ReadKey();
+
+            // Példányosítás paraméter nélkül
+            Kutya kutya3 = new Kutya();
+            Console.WriteLine("\nA kutya3 neve {0}", kutya2.getNev());
+            Console.WriteLine("A kutya3 fajtája {0}", kutya2.getFajta());
+            Console.WriteLine("A kutya3 kora {0}", kutya2.getKor());
+            Console.WriteLine("A kutya3 hangja: ");
+            kutya3.HangotAd();
+            Console.ReadKey();
+
+            // Macska Példányosítása paraméter nélkül
+            Macska macska1 = new Macska();
+            Console.WriteLine("\nA macska1 neve {0}", macska1.getNev());
+            Console.WriteLine("A macska1 fajtája {0}", macska1.getFajta());
+            Console.WriteLine("A macska1 kora {0}", macska1.getKor());
+            Console.WriteLine("A macska1 hangja: ");
+            macska1.HangotAd();
+            Console.ReadKey();
+
+            // Polimorfizmus bemutatása
+            Console.WriteLine("\nPolimorfizmus bemutatása");
+            Home sweetHome = new Home();
+            for (int i = 0; i < 5; i++)
+            {
+                sweetHome.addAllat(new Kutya());
+                sweetHome.addAllat(new Macska());
+            }
+
+            // Állat véletlen szerű meghívása
+            Allat a = new Allat();
+            for (int i = 0; i < 10; i++)
+            {
+                a = sweetHome.hivas();
+                Console.WriteLine("\nAz állat neve {0}", a.getNev());
+                Console.WriteLine("Az állat fajtája {0}", a.getFajta());
+                Console.WriteLine("Az állat kora {0}", a.getKor());
+                Console.WriteLine("Az állat hangja: ");
+                a.HangotAd();
+                Console.ReadKey();
+            }
         }
     }
 
@@ -125,8 +165,10 @@ namespace Classes
 
         public void setFajta(string p)
         {
-            this.fajta = p;
+            if (this.fajta != p) this.fajta = p;
         }
+
+        public void setNev(string p) { if (p.Length < 15) this.nev = p; }
 
         public string getNev() { return this.nev; }
 
@@ -145,5 +187,41 @@ namespace Classes
             this.hang = hang;
         }
 
+        public Kutya() : base()
+        {
+            this.hang = "Én vagyok a beszélő kutya! A nevem: " + this.getNev();
+        }
+
+    }
+
+    class Macska : Allat
+    {
+        public Macska() : base()
+        {
+            this.setNev("Cicamica");
+            this.setFajta("sziámi");
+            this.hang = "Én vagyok a beszélő macska! A nevem: " + this.getNev();
+        }
+    }
+
+    class Home
+    {
+        // Osztályváltozók
+        private List<Allat> helyek = new List<Allat>();
+
+        // Változók
+        private Random rnd = new Random();
+
+        public Home() { }
+
+        public void addAllat(Allat p)
+        {
+            this.helyek.Add(p);
+        }
+
+        public Allat hivas()
+        {
+            return this.helyek[rnd.Next(0, 10)];
+        }
     }
 }
