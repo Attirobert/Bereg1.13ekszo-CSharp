@@ -62,15 +62,22 @@ namespace Classes
             // Polimorfizmus bemutatása
             Console.WriteLine("\nPolimorfizmus bemutatása");
             Home sweetHome = new Home();
-            for (int i = 0; i < 5; i++)
+
+            // A sweethome feltöltése macskával és kutyával
+            Console.WriteLine("Add meg a helyek számát: ");
+            int hsz = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < hsz; i++)
             {
                 sweetHome.addAllat(new Kutya());
                 sweetHome.addAllat(new Macska());
             }
 
             // Állat véletlen szerű meghívása
+            Console.WriteLine("Hányszor hívjam ki az állatokat?: ");
+            int hivas = Convert.ToInt32(Console.ReadLine());
+
             Allat a = new Allat();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < hivas; i++)
             {
                 a = sweetHome.hivas();
                 Console.WriteLine("\nAz állat neve {0}", a.getNev());
@@ -212,16 +219,18 @@ namespace Classes
         // Változók
         private Random rnd = new Random();
 
-        public Home() { }
+        public Home() {}
 
+        // Új állat elemet ad a helyek listához
         public void addAllat(Allat p)
         {
             this.helyek.Add(p);
         }
 
+        // Hívásra véletlen szerűen jön elő egy állat, ami vagy kutya, vagy macska
         public Allat hivas()
         {
-            return this.helyek[rnd.Next(0, 10)];
+            return this.helyek[rnd.Next(0, this.helyek.Count)];
         }
     }
 }
