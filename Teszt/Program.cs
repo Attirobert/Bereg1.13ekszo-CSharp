@@ -10,7 +10,7 @@ namespace Teszt
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Helló");
+            Console.WriteLine("Helló Világ!");
             Console.ReadKey();
         }
     }
