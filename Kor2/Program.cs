@@ -74,6 +74,10 @@ namespace Kor2
                 h.setFelszin();
                 h.setTerfogat();
 
+                // Kiíratom a hasáb felszínét és térfogatát
+                Console.WriteLine("A hasáb felszíne: {0}", h.getFelszin());
+                Console.WriteLine("A hasáb térfogata: {0}", h.getTerfogat());
+                Console.ReadKey();
             } while (true);
 
         }
