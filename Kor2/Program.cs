@@ -13,14 +13,22 @@ namespace Kor2
             terulet,
             kerulet;
 
+        // Konstruktorok
         public Kor2(){}
 
+        // Metódus (konstruktor) overloading
+        public Kor2(double sugar){ if (joSugar(sugar)) this.sugar = sugar; }
+
+        // Sugár beállítása
         public void setSugar(double p){
-            this.sugar = p;
-            this.setKerulet();
-            this.setTerulet();
+            if (joSugar(p)) this.sugar = p;
         }
 
+        private bool joSugar(double p)
+        {
+            if (p > 0 && p < 100) return true;
+            return false;
+        }
         public void setKerulet()
         {
             this.kerulet = Math.Round(2 * this.sugar * Math.PI, 2);
@@ -34,6 +42,7 @@ namespace Kor2
         public double getKerulet() { return this.kerulet; }
         public double getTerulet() { return this.terulet; }
     }
+
     class Program
     {
         static void Main(string[] args)
@@ -46,11 +55,25 @@ namespace Kor2
                 s = Convert.ToDouble(Console.ReadLine());
                 if (s == 0) break;
                 kor.setSugar(s);
+                kor.setKerulet();
+                kor.setTerulet();
 
                 // Kiíratom a kerületet és a területet
                 Console.WriteLine("A kör kerülete: {0}", kor.getKerulet());
                 Console.WriteLine("A kör területe: {0}", kor.getTerulet());
                 Console.ReadKey();
+
+                Hasab h = new Hasab();
+                Console.WriteLine("Adja meg a hasáb sugarát!");
+                h.setSugar(Convert.ToDouble(Console.ReadLine()));
+
+                Console.WriteLine("Adja meg a hasáb magasságát!");
+                h.setMagas(Convert.ToDouble(Console.ReadLine()));
+                h.setKerulet();
+                h.setTerulet();
+                h.setFelszin();
+                h.setTerfogat();
+
             } while (true);
 
         }
