@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kor", "Kor\Kor.csproj", "{9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kor2", "Kor2\Kor2.csproj", "{31301065-6695-4656-BF8D-0DCFEFA4E1A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Szamolo", "Szamolo\Szamolo.csproj", "{A91E4BF0-9C3D-4D69-BA2F-F7E199EF483F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{31301065-6695-4656-BF8D-0DCFEFA4E1A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31301065-6695-4656-BF8D-0DCFEFA4E1A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31301065-6695-4656-BF8D-0DCFEFA4E1A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A91E4BF0-9C3D-4D69-BA2F-F7E199EF483F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A91E4BF0-9C3D-4D69-BA2F-F7E199EF483F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A91E4BF0-9C3D-4D69-BA2F-F7E199EF483F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A91E4BF0-9C3D-4D69-BA2F-F7E199EF483F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
